@@ -9,13 +9,21 @@ class Super {
 
 interface I { String world(); }
 abstract class C implements I {
-    public String hello() { return "Hello "; } }
+	public C() { System.out.println("C"); }
+    public String hello() { return "Hello "; }
+    @Override protected void finalize() { System.out.println("~C"); }
+}
 class D extends C {
+	public D() { System.out.println("D"); }
 	@Override public String hello() { return "World "; }
 	@Override public String world() { return super.hello() + hello(); }
+    @Override protected void finalize() { System.out.println("~D"); }
 }
 class E extends D {
-	@Override public String hello() { return "Mundo "; } }
+	public E() { System.out.println("E"); }
+	@Override public String hello() { return "Mundo "; }
+    @Override protected void finalize() { System.out.println("~E"); }
+}
 
 /*
 abstract class A {
