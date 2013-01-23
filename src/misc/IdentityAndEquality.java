@@ -1,8 +1,8 @@
 package misc;
 
-public class Semantics {
+public class IdentityAndEquality {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		// value semantics
 		int x = 5;
 		int y = x;
@@ -44,11 +44,11 @@ public class Semantics {
 class Temperature implements /* Comparable<Temperature>, */Cloneable {
 	private int t;
 
-	public Temperature(int t) {
+	public Temperature(final int t) {
 		this.t = t;
 	}
 
-	public void set(int t) {
+	public void set(final int t) {
 		this.t = t;
 	}
 
@@ -62,7 +62,7 @@ class Temperature implements /* Comparable<Temperature>, */Cloneable {
 	}
 
 	@Override
-	public boolean equals(Object that) {
+	public boolean equals(final Object that) {
 		return this == that || that instanceof Temperature
 				&& this.get() == ((Temperature) that).get();
 	}

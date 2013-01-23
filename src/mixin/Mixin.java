@@ -26,7 +26,6 @@ class Composable<Base> {
     /**
      * Sets the superclass instance for this object.
      */
-    @SuppressWarnings("unchecked")
     private void setSuper(Base zuper) {
         this.zuper = zuper;
         System.out.println(this + ".zuper = " + zuper);
@@ -46,13 +45,13 @@ class Composable<Base> {
     }
 
     /**
-     * Constructs an instance of an extensible base class.  
+     * Constructs an instance of an extensible base class.
      */
     protected Composable() { this(null); }
-    
+
     /**
      * Dynamically extends a conceptual superclass instance.
-     * @param zuper the instance of an extensible base class 
+     * @param zuper the instance of an extensible base class
      */
     @SuppressWarnings("unchecked")
     protected Composable(Base zuper) {
@@ -61,12 +60,12 @@ class Composable<Base> {
     }
 
     /**
-     * Provides access to this instance 
+     * Provides access to this instance
      * viewed as an instance of the underlying argument type.
      * @return the extended object
      */
     protected Base getThis() { return thiz; }
-    
+
     /**
      * Provides access to the conceptual superclass instance
      * viewed as an instance of the underlying argument type.
@@ -169,7 +168,7 @@ class Verbose<Item> extends CollectionMixin<Item> {
  */
 public class Mixin {
     public static void main(String[] args) {
-        SizeOf<String> s = 
+        SizeOf<String> s =
           new SizeOf<String>(
             new Verbose<String>(
               new Verbose<String>(
