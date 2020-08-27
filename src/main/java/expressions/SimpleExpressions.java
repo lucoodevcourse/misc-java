@@ -7,22 +7,14 @@ class SimpleExpressions {
     Expr onePtwo = new Plus(new Constant(1), new Constant(2));
     Expr threeMfour = new Times(new Constant(3), new Constant(4));
     Expr m = new Minus(onePtwo, threeMfour);
-    Expr n = new Div(m,new Constant(5));
+    Expr n = new Div(m, new Constant(5));
 
     Expr p =
-      new Div(
-        new Minus(
-          new Plus(
-            new Constant(1),
-            new Constant(2)
-          ),
-          new Times(
-            new Constant(3),
-            new Constant(4)
-          )
-        ),
-        new Constant(5)
-      );
+        new Div(
+            new Minus(
+                new Plus(new Constant(1), new Constant(2)),
+                new Times(new Constant(3), new Constant(4))),
+            new Constant(5));
 
     System.out.println("result = " + n.evaluate());
     System.out.println("result = " + p.evaluate());
@@ -34,26 +26,43 @@ class SimpleExpressions {
 
 interface Expr {
   void preorder();
+
   void postorder();
+
   int evaluate();
 }
 
 class Constant implements Expr {
   private int val = 0;
 
-  public Constant(int w) { val = w; }
+  public Constant(int w) {
+    val = w;
+  }
 
-  public int evaluate() { return val; }
-  public void preorder() { System.out.println("Const(" + val + ")"); }
-  public void postorder() { System.out.println("Const(" + val + ")"); }
+  public int evaluate() {
+    return val;
+  }
+
+  public void preorder() {
+    System.out.println("Const(" + val + ")");
+  }
+
+  public void postorder() {
+    System.out.println("Const(" + val + ")");
+  }
 }
 
 class Plus implements Expr {
   Expr lt, rt;
 
-  public Plus(Expr l, Expr r) { lt = l; rt = r; }
+  public Plus(Expr l, Expr r) {
+    lt = l;
+    rt = r;
+  }
 
-  public int evaluate() { return lt.evaluate() + rt.evaluate();}
+  public int evaluate() {
+    return lt.evaluate() + rt.evaluate();
+  }
 
   public void preorder() {
     System.out.println("Plus");
@@ -69,11 +78,16 @@ class Plus implements Expr {
 }
 
 class Minus implements Expr {
-  Expr lt,rt;
+  Expr lt, rt;
 
-  public Minus(Expr l, Expr r) { lt = l; rt = r; }
+  public Minus(Expr l, Expr r) {
+    lt = l;
+    rt = r;
+  }
 
-  public int evaluate() { return lt.evaluate() - rt.evaluate(); }
+  public int evaluate() {
+    return lt.evaluate() - rt.evaluate();
+  }
 
   public void preorder() {
     System.out.println("Minus");
@@ -91,9 +105,14 @@ class Minus implements Expr {
 class Times implements Expr {
   Expr lt, rt;
 
-  public Times(Expr l, Expr r) { lt = l; rt = r; }
+  public Times(Expr l, Expr r) {
+    lt = l;
+    rt = r;
+  }
 
-  public int evaluate() { return lt.evaluate() *rt.evaluate();}
+  public int evaluate() {
+    return lt.evaluate() * rt.evaluate();
+  }
 
   public void preorder() {
     System.out.println("Times");
@@ -111,9 +130,14 @@ class Times implements Expr {
 class Div implements Expr {
   Expr lt, rt;
 
-  public Div(Expr l, Expr r) { lt = l; rt = r; }
+  public Div(Expr l, Expr r) {
+    lt = l;
+    rt = r;
+  }
 
-  public int evaluate() { return lt.evaluate() / rt.evaluate();}
+  public int evaluate() {
+    return lt.evaluate() / rt.evaluate();
+  }
 
   public void preorder() {
     System.out.println("Div");

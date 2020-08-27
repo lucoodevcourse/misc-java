@@ -14,8 +14,7 @@ public class SimpleReflection {
       Object x = clazz.newInstance();
       System.out.println(x);
       if (x instanceof String) {
-        System.out.println("length of string is " +
-                           ((String) x).length());
+        System.out.println("length of string is " + ((String) x).length());
       } else if (x instanceof Plugin) {
         Plugin p = (Plugin) x;
         p.f();
@@ -28,16 +27,26 @@ public class SimpleReflection {
 
 interface Plugin {
   void f();
+
   String getName();
 }
 
 class MyPlugin1 implements Plugin {
-  public void f() { System.out.println("here plugin 1"); }
-  public String getName() { return "plugin 1"; }
+  public void f() {
+    System.out.println("here plugin 1");
+  }
+
+  public String getName() {
+    return "plugin 1";
+  }
 }
 
 class MyPlugin2 implements Plugin {
-  public void f() { System.out.println("here plugin 2"); }
-  public String getName() { return "plugin 2"; }
-}
+  public void f() {
+    System.out.println("here plugin 2");
+  }
 
+  public String getName() {
+    return "plugin 2";
+  }
+}

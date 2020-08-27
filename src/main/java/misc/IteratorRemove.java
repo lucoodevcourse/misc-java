@@ -15,10 +15,10 @@ class IteratorRemove {
     System.out.println(l.get(0) + " has length " + l.get(0).length());
     Iterator<String> i = l.iterator();
     while (i.hasNext()) {
-//    wrong:
-//    String x = i.next();
-//    l.remove(x);
-//    right:
+      //    wrong:
+      //    String x = i.next();
+      //    l.remove(x);
+      //    right:
       i.next();
       i.remove();
     }
