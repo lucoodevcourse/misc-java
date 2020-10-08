@@ -39,3 +39,13 @@ records.Records
 treesearch.TreeSearch
 vexpressions.VisitorExpressions
 ```
+
+# How to generate this list in UNIX
+
+We first look for suitable main methods.
+Then we translate the resulting list of files into a list of classes.
+
+```
+grep -l -r 'void main' src/main/java |\
+cut -d/ -f4- | cut -d. -f1 | tr '/' '.' | sort
+```
