@@ -19,7 +19,12 @@ class SimpleExpressions {
     System.out.println("result = " + n.evaluate());
     System.out.println("result = " + p.evaluate());
 
+    System.out.println();
+    System.out.println("preorder:")
     n.preorder();
+
+    System.out.println();
+    System.out.println("postorder:")
     n.postorder();
   }
 }
