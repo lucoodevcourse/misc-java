@@ -33,5 +33,11 @@ local.properties
 # Gradle
 .gradle/
 
+# VS Code / Metals
+.vscode/
+.bloop/
+.metals/
+.bsp/
+
 # Mac files
 *.DS_Store
